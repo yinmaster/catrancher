@@ -1,0 +1,52 @@
+<html ng-app="app">
+
+<head>
+  <title>Cat Rancher</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body ng-controller="Catrancher as cats">
+
+  <div class="row">
+    <table class="main large-6 columns">
+	<tr>
+        <td ng-repeat="item in cats.data | startFrom: 0 | limitTo: 4" >
+          <cat id="{{item | join}}">
+  			Loading...
+          </cat>
+        </td>
+	</tr>
+	<tr>
+        <td ng-repeat="item in cats.data | startFrom: 3 | limitTo: 4 ">
+          <cat id="{{item | join}}">
+  			Loading...
+          </cat>
+        </td>
+	</tr>
+	<tr>
+        <td ng-repeat="item in cats.data | startFrom: 8 ">
+          <cat id="{{item | join}}">
+  			Loading...
+          </cat>
+        </td>
+	</tr>
+    
+    </table>
+    
+    <div class="large-6 columns">
+		<span class="text-center">Clowders Found</span>
+      <div ng-model="cats.clouderList" ng-repeat="item in cats.clouderList track by $index">
+        <clouder-grid id="{{item}}">
+        </clouder-grid>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/lodash/lodash.min.js"></script>
+  
+  <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+   
+  <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/catrancher.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
